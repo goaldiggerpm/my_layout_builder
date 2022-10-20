@@ -1,0 +1,33 @@
+// base files
+@import './common.scss';
+@import './variables';
+
+//fonts
+@import './fonts.scss';
+
+// components
+
+// atoms
+
+// Button
+@import './components/atoms/Button/Button.scss';
+@import './components/atoms/TextInput/TextInput.scss';
+@import './components/atoms/TextInputLabel/TextInputLabel.scss';
+@import './components/atoms/TitleLabel/TitleLabel.scss';
+@import './components/atoms/CardChip/CardChip.scss';
+@import './components/atoms/StepperCircle/StepperCircle.scss';
+@import './components/atoms/LogoBox/LogoBox.scss';
+@import './components/atoms/ImageHolder/ImageHolder.scss';
+
+// molecules
+
+@import './components/molecules/InputBox/InputBox.scss';
+@import './components/molecules/StepperBar/StepperBar.scss';
+@import './components/molecules/CardChipSet/CardChipSet.scss';
+
+// organisms
+
+@import './components/organisms/OnBoardingForms/Form1/OnBoardingForm1.scss';
+@import './components/organisms/OnBoardingForms/Form2/OnBoardingForm2.scss';
+@import './components/organisms/OnBoardingForms/Form3/OnBoardingForm3.scss';
+@import './components/organisms/OnBoardingForms/Form4/OnBoardingForm4.scss';

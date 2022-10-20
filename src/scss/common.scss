@@ -1,0 +1,19 @@
+@import './variables';
+
+* {
+    // maintains font
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: $display-inter;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
