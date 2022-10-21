@@ -2,70 +2,84 @@ import { React, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Switch from "react-switch";
 
-import { addHeader, addFooter } from '../../redux/actions/index'
+import { addHeader, addFooter, logoChangePosition, changeNavigationTabs, changeBottomMenu, changeDrawerSide, changePresetColor, changeDrawerType } from '../../redux/actions/index'
 
+// component to control the widgets
 const Controller = () => {
 
-
+    // redux states
     const haveHeader = useSelector((state) => state.LayoutReducer.haveHeader)
     const haveFooter = useSelector((state) => state.LayoutReducer.haveFooter)
+    const navigationTab = useSelector((state) => state.LayoutReducer.navigationTab)
+    const bottomMenu = useSelector((state) => state.LayoutReducer.bottomMenu)
+
     const dispatch = useDispatch()
 
+    // states
     const [logoPosition, setLogoPosition] = useState("Left");
+    const [presetColor, setPresetColor] = useState("Blue");
+    const [toggleHeader, setToggleHeader] = useState(false);
+    const [toggleFooter, setToggleFooter] = useState(false);
+    const [drawerModeOverlay, setDrawerModeOverlay] = useState(false);
+    const [drawerPositionToLeft, setDrawerPositionToLeft] = useState(false);
+    const [drawerPositionToRight, setDrawerPositionToRight] = useState(false);
+    const [haveNavigation, sethaveNavigation] = useState(false)
+    const [haveBottomMenu, sethaveBottomMenu] = useState(false)
 
+    // function to change the logo position
     function onChangeLogoValue(event) {
-        setLogoPosition(event.target.value);
+        setLogoPosition(event.target.value)
+        dispatch(logoChangePosition(event.target.value))
     }
 
-    const [presetColor, setPresetColor] = useState("Blue");
-
+    // function to change the color of preset
     function onChangeColorValue(event) {
         setPresetColor(event.target.value);
+        dispatch(changePresetColor(event.target.value))
     }
 
-    const [toggleHeader, setToggleHeader] = useState(false);
-
+    // function to hide/show the header
     function changeHeader(val) {
         setToggleHeader(val)
         dispatch(addHeader(!haveHeader))
     }
 
-    const [toggleFooter, setToggleFooter] = useState(false);
-
+    // function to hide/show the footer
     function changeFooter(val) {
         setToggleFooter(val)
         dispatch(addFooter(!haveFooter))
     }
 
-    const [drawerModeOverlay, setDrawerModeOverlay] = useState(false);
-
+    // function to change the drawer mode
     function changeDrawerMode(val) {
         setDrawerModeOverlay(val)
+        dispatch(changeDrawerType(val))
     }
 
-    const [drawerPositionToLeft, setDrawerPositionToLeft] = useState(false);
-    const [drawerPositionToRight, setDrawerPositionToRight] = useState(false);
-
+    // function to change the drawer position to left
     function changeDrawerPositionLeft(val) {
         setDrawerPositionToLeft(true)
         setDrawerPositionToRight(false)
+        dispatch(changeDrawerSide("Left"))
     }
 
+    // function to change the drawer position to right
     function changeDrawerPositionRight(val) {
         setDrawerPositionToLeft(false)
         setDrawerPositionToRight(true)
+        dispatch(changeDrawerSide("Right"))
     }
 
-    const [haveNavigation, sethaveNavigation] = useState(false)
-
+    // function to hide/show the navigation
     function changeNavigation(val) {
         sethaveNavigation(val)
+        dispatch(changeNavigationTabs(!navigationTab))
     }
 
-    const [haveBottomMenu, sethaveBottomMenu] = useState(false)
-
-    function changeBottomMenu(val) {
+    // function to hide/show the bottom menu
+    function changeBottomMenuTab(val) {
         sethaveBottomMenu(val)
+        dispatch(changeBottomMenu(!bottomMenu))
     }
 
 
@@ -85,10 +99,11 @@ const Controller = () => {
 
                 {/* for changing color */}
                 <div onChange={onChangeColorValue}>
-                    <input type="radio" value="Blue" name="presetColor" checked={presetColor === "Blue"} /> Blue (&#35;1976d2)
-                    <input type="radio" value="Red" name="presetColor" checked={presetColor === "Red"} /> Red (&#35;ff0000)
+                    <input type="radio" value="#1976d2" name="presetColor" checked={presetColor === "#1976d2"} /> Blue (&#35;1976d2)
+                    <input type="radio" value="#ff0000" name="presetColor" checked={presetColor === "#ff0000"} /> Red (&#35;ff0000)
                 </div>
 
+                {/* Switches for actions */}
                 <label className='toggle-labels' >
                     <Switch onChange={changeHeader} checked={toggleHeader} />
                     <span>I want a Header</span>
@@ -120,7 +135,7 @@ const Controller = () => {
                 </label>
 
                 <label className='toggle-labels' >
-                    <Switch onChange={changeBottomMenu} checked={haveBottomMenu} />
+                    <Switch onChange={changeBottomMenuTab} checked={haveBottomMenu} />
                     <span>I want Bottom Menu (requires Footer)</span>
                 </label>
 
