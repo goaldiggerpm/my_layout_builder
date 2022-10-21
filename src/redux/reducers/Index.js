@@ -1,9 +1,9 @@
-import layoutReducer from './layoutReducer'
+import LayoutReducer from './LayoutReducer'
 
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-    layoutReducer
+    LayoutReducer
 })
 
 export default rootReducer

@@ -1,4 +1,4 @@
-import MainPage from './pages/main/Index.js'
+import MainPage from './pages/main/index.js'
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 

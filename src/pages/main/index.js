@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import Header from '../../components/Header/Index'
+import Header from '../../components/Header/Header'
 
-import { addHeader, deleteHeader } from '../../redux/actions/Index'
+import { addHeader } from '../../redux/actions/index.js'
 
-function Index() {
+const Index = () => {
 
-    // const [haveHeader, sethaveHeader] = useState(false)
-    const haveHeader = useSelector((state) => state.layoutReducer.haveHeader)
+    const haveHeader = useSelector((state) => state.LayoutReducer.haveHeader)
     const dispatch = useDispatch()
 
     return (

@@ -2,7 +2,7 @@ const initialData = {
     haveHeader: false
 }
 
-const layoutReducer = (state = initialData, action) => {
+const LayoutReducer = (state = initialData, action) => {
     switch (action.type) {
         case "TOGGLE_HEADER":
             const { data } = action.payload
@@ -15,4 +15,4 @@ const layoutReducer = (state = initialData, action) => {
     }
 }
 
-export default layoutReducer
+export default LayoutReducer
