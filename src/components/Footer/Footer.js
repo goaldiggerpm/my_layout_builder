@@ -1,23 +1,21 @@
 import { React, useState } from 'react'
 
-import Logo from '../../assets/tigeen_computing_logo.png'
-
-const Header = () => {
+const Footer = () => {
 
     const [toggleBurger, settoggleBurger] = useState(false)
 
-    const [itsChecked, setitsChecked] = useState({
+    const [itsCheckedF, setitsCheckedF] = useState({
         tab1: true,
         tab2: false,
         tab3: false,
         tab4: false,
     })
 
-    function checkThis(tab) {
+    function checkThisF(tab) {
         switch (tab) {
             case "tab1":
-                setitsChecked({
-                    ...itsChecked,
+                setitsCheckedF({
+                    ...itsCheckedF,
                     tab1: true,
                     tab2: false,
                     tab3: false,
@@ -26,8 +24,8 @@ const Header = () => {
                 break;
 
             case "tab2":
-                setitsChecked({
-                    ...itsChecked,
+                setitsCheckedF({
+                    ...itsCheckedF,
                     tab1: false,
                     tab2: true,
                     tab3: false,
@@ -36,8 +34,8 @@ const Header = () => {
                 break;
 
             case "tab3":
-                setitsChecked({
-                    ...itsChecked,
+                setitsCheckedF({
+                    ...itsCheckedF,
                     tab1: false,
                     tab2: false,
                     tab3: true,
@@ -46,8 +44,8 @@ const Header = () => {
                 break;
 
             case "tab4":
-                setitsChecked({
-                    ...itsChecked,
+                setitsCheckedF({
+                    ...itsCheckedF,
                     tab1: false,
                     tab2: false,
                     tab3: false,
@@ -56,8 +54,8 @@ const Header = () => {
                 break;
 
             default:
-                setitsChecked({
-                    ...itsChecked,
+                setitsCheckedF({
+                    ...itsCheckedF,
                     tab1: true,
                     tab2: false,
                     tab3: false,
@@ -68,21 +66,20 @@ const Header = () => {
     }
 
     return (
-        <div className={toggleBurger ? "header" : "header active"} >
+        <div className={toggleBurger ? "footer" : "footer active"} >
 
 
             <div className='nav-container' >
 
-                <img className='main-img' src={Logo} alt='main' ></img>
 
                 <div className='container' >
-                    <input type="radio" id="tab1" name="tab" defaultChecked={itsChecked.tab1} onClick={() => { checkThis("tab1"); console.log("hello"); }} />
+                    <input type="radio" id="tab1" name="tab" defaultChecked={itsCheckedF.tab1} onClick={() => { checkThisF("tab1"); console.log("hello"); }} />
                     <label htmlFor="tab1"><i ></i> Features</label>
-                    <input type="radio" id="tab2" name="tab" defaultChecked={itsChecked.tab2} onClick={() => { checkThis("tab2") }} />
+                    <input type="radio" id="tab2" name="tab" defaultChecked={itsCheckedF.tab2} onClick={() => { checkThisF("tab2") }} />
                     <label htmlFor="tab2"><i ></i> History</label>
-                    <input type="radio" id="tab3" name="tab" defaultChecked={itsChecked.tab3} onClick={() => { checkThis("tab3") }} />
+                    <input type="radio" id="tab3" name="tab" defaultChecked={itsCheckedF.tab3} onClick={() => { checkThisF("tab3") }} />
                     <label htmlFor="tab3"><i ></i> Reviews</label>
-                    <input type="radio" id="tab4" name="tab" defaultChecked={itsChecked.tab4} onClick={() => { checkThis("tab4") }} />
+                    <input type="radio" id="tab4" name="tab" defaultChecked={itsCheckedF.tab4} onClick={() => { checkThisF("tab4") }} />
                     <label htmlFor="tab4"><i ></i> Share</label>
                     {/* <div className="line"></div> */}
 
@@ -107,4 +104,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Footer

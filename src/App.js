@@ -1,4 +1,5 @@
 import MainPage from './pages/main/index.js'
+import './scss/index.scss'
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
